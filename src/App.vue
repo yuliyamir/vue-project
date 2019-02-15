@@ -2,11 +2,10 @@
   <div id="app">
     <h1>Parent: {{ carName }}</h1>
 
-    <app-counter :counter="counter"></app-counter>
+    <app-counter></app-counter>
     <app-car
       :carName="carName"
       :carYear="carYear"
-      :counter="counter"
       :changeFunc="changeNameToAudi"
       @nameChanged="carName = $event"
       @counterUpdated="counter = $event"
@@ -23,8 +22,7 @@ export default {
   data () {
     return {
       carName: 'Ford',
-      carYear: 2018,
-      counter: 0
+      carYear: 2018
     }
   },
   methods: {
