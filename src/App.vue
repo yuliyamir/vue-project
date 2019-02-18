@@ -1,24 +1,18 @@
 <template>
   <div id="app">
-    <app-car>
-      <h2 slot="title">{{ carName}}</h2>
-      <p slot="text">Lorem ipsum dolor.</p>
-    </app-car>
+    <h2 v-colored>{{ title }}</h2>
   </div>
 </template>
 
 <script>
-import Car from './Car.vue'
+
 
 export default {
   name: 'app',
   data() {
     return {
-      carName: 'Ford'
+      title: 'Hello I am Vue!'
     }
-  },
-  components: {
-    appCar: Car
   }
 }
 </script>
