@@ -3,7 +3,7 @@ export default {
 
     const  fontModifier = bindings.modifiers['font'];
     if (fontModifier) {
-      el.style.fontSize = '60px';
+      el.style.fontSize = '30px';
     }
 
     const delayModifier = bindings.modifiers['delay'];
