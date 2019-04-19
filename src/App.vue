@@ -3,26 +3,28 @@
 
     <h2>Form inputs</h2>
 
-   <input type="text" v-model.number="age">
+    <app-onoff v-model="switched"></app-onoff>
 
-    <p>{{ age }}</p>
+    <div>
+      <h3 v-if="switched">Component is enabled</h3>
+      <h3 v-else>Component is disabled</h3>
+    </div>
   </div>
 </template>
 
 <script>
+  import Onoff from './Onoff.vue'
 
   export default {
     name: 'app',
     data() {
       return {
-        age: 20
+        switched: false
       }
     },
-    watch: {
-      age (value) {
-        console.log(value);
-      }
-    }
+   components: {
+      appOnoff: Onoff
+   }
   }
 </script>
 
