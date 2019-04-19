@@ -3,15 +3,9 @@
 
     <h2>Form inputs</h2>
 
-    <select v-model="social">
-      <option
-        v-for="s in socialsList"
-      >{{ s }}</option>
-    </select>
+   <input type="text" v-model.number="age">
 
-    <hr>
-
-    <p>{{ social }}</p>
+    <p>{{ age }}</p>
   </div>
 </template>
 
@@ -21,8 +15,12 @@
     name: 'app',
     data() {
       return {
-        social: 'instagram',
-        socialsList: ['instagram', 'vk', 'facebook']
+        age: 20
+      }
+    },
+    watch: {
+      age (value) {
+        console.log(value);
       }
     }
   }
