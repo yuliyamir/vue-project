@@ -3,23 +3,15 @@
 
     <h2>Form inputs</h2>
 
-    <label>
-      <input type="radio" value="instagram" v-model="social"> Instagram
-    </label>
-
-    <label>
-      <input type="radio" value="vk" v-model="social"> Vk
-    </label>
-
-    <label>
-      <input type="radio" value="facebook" v-model="social"> Facebook
-    </label>
+    <select v-model="social">
+      <option
+        v-for="s in socialsList"
+      >{{ s }}</option>
+    </select>
 
     <hr>
 
-
-      <p> {{social}} </p>
-
+    <p>{{ social }}</p>
   </div>
 </template>
 
@@ -29,20 +21,12 @@
     name: 'app',
     data() {
       return {
-        social: 'facebook'
+        social: 'instagram',
+        socialsList: ['instagram', 'vk', 'facebook']
       }
     }
   }
 </script>
 
 <style lang="scss">
-  textarea {
-    height: 100px;
-    width: 400px;
-  }
-
-  p {
-    white-space: pre;
-  }
-
 </style>
