@@ -18,6 +18,10 @@
 		  year () {
 		    return this.$route.query.year
       }
+    },
+    beforeRouteEnter (toR, fromR, next) {
+		  console.log('beforeRouteEnter');
+		  next()
     }
 	}
 </script>
