@@ -1,40 +1,42 @@
 <template>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav">
-            <!--<li class="nav-item active">-->
-              <!--<router-link class="nav-link" to="/">Home</router-link>-->
-            <!--</li>-->
-            <!--<li class="nav-item">-->
-              <!--<router-link class="nav-link" to="/cars">Cars</router-link>-->
-            <!--</li>-->
-
-            <router-link tag="li" class="nav-item" exact to="/" active-class="active">
-              <a class="nav-link">Home</a>
-            </router-link>
-
-            <router-link tag="li" class="nav-item" to="/cars" active-class="active">
-              <a class="nav-link">Cars</a>
-            </router-link>
-
-            <router-link tag="li" class="nav-item" exact to="/car/3" active-class="active">
-              <a class="nav-link">Car 3</a>
-            </router-link>
-
-            <router-link tag="li" class="nav-item" to="/car/4" active-class="active">
-              <a class="nav-link">Car 4</a>
-            </router-link>
-          </ul>
-        </div>
-      </nav>
-
-        <router-view></router-view>
+<div class="container pt-2">
+    <div class="form-group">
+        <label for="name">Car name</label>
+        <input type="text" id="name" class="form-control" v-model.trim="carName">
     </div>
+    <div class="form-group">
+        <label for="year">Car year</label>
+        <input type="text" id="year" class="form-control" v-model.number="carYear">
+    </div>
+
+    <button class="btn btn-success" @click="createCar">Create car</button>
+</div>
 </template>
 
 <script>
-
+    export default {
+    	data () {
+    		return {
+    			carName: '',
+                carYear: 2018
+            }
+        },
+        methods: {
+    		createCar () {
+    			const car = {
+    				name: this.carName,
+    				year: this.carYear,
+                };
+    			this.$http.post('http://localhost:3000/cars', car)
+                    .then(response => {
+                    	return response.json()
+                    })
+                    .then(newCar => {
+                    	console.log(newCar)
+                    })
+            }
+        }
+    }
 </script>
 
 <style lang="scss">
